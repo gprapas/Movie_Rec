@@ -1,0 +1,16 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block content %}
+
+ <h1> Movie Posts For Movie Lovers </h1>
+ <ul> 
+ {% for post in object_list %}
+     
+     <li><medium> {{ post.pk }})</medium><a href="{% url 'article_info' post.pk %}" >{{ post.title }}</a> -  {{ post.author }}<br/><li>
+ {% endfor %}
+ 
+ </ul>
+ 
+    
+{% endblock %}

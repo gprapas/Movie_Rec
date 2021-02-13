@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Movie Recommendations</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static '/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static '/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li class="divider"></li>
+  <li><a href="{% url 'recommendation-top10' %}">Top10 All-Time Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'space-top10' %}">Top10 Space Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'western-top10' %}">Top10 Western Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'spy-top10' %}">Top10 Spy Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'christmas-top10' %}">Top10 Christmas Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'action-top10' %}">Top10 Action Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'comedy-top10' %}">Top10 Comedy Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'drama-top10' %}">Top10 Drama Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'scifi-top10' %}">Top10 Sci-Fi Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'sport-top10' %}">Top10 Sport Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'biography-top10' %}">Top10 Biography Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'musical-top10' %}">Top10 Musical Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'horror-top10' %}">Top10 Horror Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'romance-top10' %}">Top10 Romance Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'cars-top10' %}">Top10 Fast Cars Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'magic-top10' %}">Top10 Magic Movies</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url 'heroes-top10' %}">Top10 Super Heroes Movies</a></li>
+     
+</ul> 
+<nav class="black">
+  <div class="nav-wrapper">
+    
+    
+    <ul class="center hide-on-med-and-down">
+      
+    
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><b>Movies tha everyone should watch</b><i class="material-icons right">arrow_drop_down</i></a>
+    
+    
+
+      </li>
+    </ul>
+  </div>
+  
+</nav>
+  
+{% block banner %}
+{% endblock %}
+
+
+  <div class="container">
+    <div class="section">
+  
+  
+  {% block content %}
+  {% endblock %}
+
+    </div>
+  </div>
+
+  
+ 
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+
+  </body>
+</html>
+  

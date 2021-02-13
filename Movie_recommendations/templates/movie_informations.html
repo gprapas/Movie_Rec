@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+  
+
+{% block content %}
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m13">
+          <div class="card horizontal">
+            <div class="card-image">
+
+            {% if our_db is True %}
+              <img src="{{ movie_info.Poster.url }}">
+            {% else %}
+              <img src="{{ movie_info.Poster }}">
+            {% endif %}
+            
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <span class="card-title"><b>{{ movie_info.Title }}</b></span>
+                <span>{{ movie_info.Type }}</span>
+                <p>Description: <a>{{ movie_info.Plot }}</a></p>
+                <!--<div class="divider"></div> -->
+                <span>Year: <a>{{ movie_info.Year }}</a></span>
+                <span class="right">Rated: <a>{{ movie_info.Rated }}</a></span>
+                <p>Released: <a>{{ movie_info.Released }}</a></p>
+                <p>Runtime: <a>{{ movie_info.Runtime }}</a></p>
+                {% if our_db is True %}
+                    <p>Genre: {% for genre in movie_info.Genre.all %}<b><a href="{{ genre.get_absolute_url }}">{{ genre }}</a>, </b>{% endfor %}</p>
+                {% else %}
+                    <p>Genre: <b>{{ movie_info.Genre }} </b></p>
+                {% endif %}
+
+                <p>Director: <a>{{ movie_info.Director }}</a></p>
+                <p>Writer: <a>{{ movie_info.Writer }}</a></p>
+                {% if our_db is True %}
+                  <p>Actors: {% for actor in movie_info.Actors.all %}<a href="{{ actor.get_absolute_url }}"><b>{{ actor }}</a>, </b>{% endfor %}</p>
+                {% else %}
+                  <p>Actors: <b>{{ movie_info.Actors }}</b></p>
+                {% endif %} 
+                <p>Language: <a>{{ movie_info.Language }}</a></p>
+                <p>Country: <a>{{ movie_info.Country }}</a></p>
+                <p>Awards: <a>{{ movie_info.Awards }}</a></p>
+
+                {% if our_db is True %}
+                  {% for movie in movie_info.Ratings.all %}
+                    {% if movie.source == 'Internet Movie Database' %}
+                      <ul class="collection">
+                        <li class="collection-item avatar">
+                          <img src="{% static 'img/imdb.png' %}" alt="" class="circle">
+                          <span class="title">{{ movie.source }}</span>
+                          <p>{{ movie.rating }}</p>
+                        </li>
+                      </ul>
+                    {% endif %}
+                  {% endfor %}
+
+                {% else %}
+                  <ul class="collection">
+                    <li class="collection-item avatar">
+                      <img src="{% static 'img/imdb.png' %}" alt="" class="circle">
+                      <span class="title">{{ movie_info.Ratings.0.Source }}</span>
+                      <p>{{ movie_info.Ratings.0.Value }}</p>
+                    </li>
+                  </ul>
+
+                {% endif %}
+
+               
+                <p>Box office: <a>{{ movie_info.BoxOffice }}</a></p>
+                <p>imdb Votes: <a>{{ movie_info.imdbVotes }}</a></p>
+                <p>imdb ID: <a>{{ movie_info.imdbID }}</a></p>   
+                <p>Production: <a>{{ movie_info.Production }}</a></p>
+ 
+                <a href="{% url 'rate-movie' movie_info.imdbID %}" class="waves-effect waves-light btn"><i class="material-icons left">star</i>Rate</a>
+                <a href="{% url 'add-movies-to-watchlist' movie_info.imdbID %}" class="waves-effect waves-light btn"><i class="material-icons left">playlist_add</i>Watchlist</a>
+                <a href="{% url 'add-movies-liked' movie_info.imdbID %}" class="waves-effect waves-light btn"><i class="material-icons left">thumb_up</i>Liked</a>
+                <a href="{% url 'index' %}" class="waves-effect waves-light btn"><i class="material-icons left">home</i>Return to Home</a>
+                <a href="https://www.imdb.com/title/{{ movie_info.imdbID }}/" target="_blank" class="waves-effect waves-light btn"><i class="material-icons left">exit_to_app</i>visit imdb</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <h4>Reviews</h4>
+      <div class="divider"></div>
+
+
+          <div class="row">
+            <div class="col s12 m12">
+              <div class="card">
+                <div class="card-content">
+                 <ul class="collection">
+
+                  {% for review in reviews %}
+                    <li class="collection-item avatar">
+
+                    {% if review.user.profile.picture %}
+                      <img src="{{ review.user.profile.picture.url }}" alt="" class="circle">
+                    {% else %}
+                      <img src="{% static 'img/no_avatar.jpg' %}" alt="" class="circle">
+                    {% endif %}
+
+                      <span class="title"><b>{{ review.user.first_name }} {{ review.user.last_name }}</b></span>
+                      <p>@{{ review.user.username }}</p>
+                      <p>{{ review.date }}</p>
+                      <a href="{% url 'user-review' review.user.username movie_info.imdbID %}" class="secondary-content"><i class="material-icons">grade</i>{{ review.rate }} / 10</a>
+                    </li>
+                  {% endfor %}
+
+                </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+{% endblock %}
+
+
+  
+    

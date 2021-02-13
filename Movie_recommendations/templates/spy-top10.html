@@ -1,0 +1,190 @@
+{% extends 'base3.html' %}
+{% load static %}
+
+
+{% block banner%}
+  <div id="index-banner">
+  
+    <div class="section no-pad-bot">
+       <div class="container">
+         <h2 class="header">Top10 Spy Movies</h2>
+        
+      </div>
+    </div>
+  </div>
+{% endblock %} 
+  
+{% block content %}
+  
+    <div class="row">
+      <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+            <a href="{% url 'movie-informations' movie_info1.imdbID %}"><img src="{{ movie_info1.Poster }}"></a>
+            </div>
+            <div class="card-content">
+              <span class="card-title"><b>{{ movie_info1.Title }}</b></span>
+              <span class="right">{{movie_info1.Year}}</span>
+              <p><b>{{ movie_info1.Type }}</b></p>
+              
+             
+            </div>
+          </div>
+        </div>
+        
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+           <a href="{% url 'movie-informations' movie_info2.imdbID %}"><img src="{{ movie_info2.Poster }}"></a>
+            </div>
+            <div class="card-content">
+              <span class="card-title"><b>{{ movie_info2.Title }}</b></span>
+              <span class="right">{{movie_info2.Year}}</span>
+              <p><b>{{ movie_info2.Type }}</b></p>
+              
+             
+            </div>
+          </div>
+        </div>
+        
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+           <a href="{% url 'movie-informations' movie_info3.imdbID %}"><img src="{{ movie_info3.Poster }}"></a>
+            </div>
+            <div class="card-content">
+              <span class="card-title"><b>{{ movie_info3.Title }}</b></span>
+              <span class="right">{{movie_info3.Year}}</span>
+              <p><b>{{ movie_info3.Type }}</b></p>
+              
+             
+            </div>
+          </div>
+        </div>
+            
+    </div>  
+    
+    
+    <div class="row">
+      <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+           <a href="{% url 'movie-informations' movie_info4.imdbID %}"><img src="{{ movie_info4.Poster }}"></a>
+            </div>
+            <div class="card-content">
+              <span class="card-title"><b>{{ movie_info4.Title }}</b></span>
+              <span class="right">{{movie_info4.Year}}</span>
+              <p><b>{{ movie_info4.Type }}</b></p>
+              
+             
+            </div>
+          </div>
+        </div>
+        
+        
+        
+      <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+           <a href="{% url 'movie-informations' movie_info5.imdbID %}"><img src="{{ movie_info5.Poster }}"></a>
+            </div>
+            <div class="card-content">
+              <span class="card-title"><b>{{ movie_info5.Title }}</b></span>
+              <span class="right">{{movie_info5.Year}}</span>
+              <p><b>{{ movie_info5.Type }}</b></p>
+              
+             
+            </div>
+          </div>
+        </div>
+        
+       
+      <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+           <a href="{% url 'movie-informations' movie_info6.imdbID %}"><img src="{{ movie_info6.Poster }}"></a>
+            </div>
+            <div class="card-content">
+              <span class="card-title"><b>{{ movie_info6.Title }}</b></span>
+              <span class="right">{{movie_info6.Year}}</span>
+              <p><b>{{ movie_info6.Type }}</b></p>
+              
+             
+            </div>
+          </div>
+        </div>
+        
+        
+        
+    </div>
+    
+     <div class="row">
+      <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+           <a href="{% url 'movie-informations' movie_info7.imdbID %}"><img src="{{ movie_info7.Poster }}"></a>
+            </div>
+            <div class="card-content">
+              <span class="card-title"><b>{{ movie_info7.Title }}</b></span>
+              <span class="right">{{movie_info7.Year}}</span>
+              <p><b>{{ movie_info7.Type }}</b></p>
+              
+             
+            </div>
+          </div>
+        </div>
+        
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+           <a href="{% url 'movie-informations' movie_info8.imdbID %}"><img src="{{ movie_info8.Poster }}"></a>
+            </div>
+            <div class="card-content">
+              <span class="card-title"><b>{{ movie_info8.Title }}</b></span>
+              <span class="right">{{movie_info8.Year}}</span>
+              <p><b>{{ movie_info8.Type }}</b></p>
+              
+             
+            </div>
+          </div>
+        </div>
+        
+        <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+           <a href="{% url 'movie-informations' movie_info9.imdbID %}"><img src="{{ movie_info9.Poster }}"></a>
+            </div>
+            <div class="card-content">
+              <span class="card-title"><b>{{ movie_info9.Title }}</b></span>
+              <span class="right">{{movie_info9.Year}}</span>
+              <p><b>{{ movie_info9.Type }}</b></p>
+              
+             
+            </div>
+          </div>
+        </div>
+        
+        
+        
+    </div>
+    
+    <div class="row">
+      <div class="col s12 m4">
+          <div class="card">
+            <div class="card-image">
+           <a href="{% url 'movie-informations' movie_info10.imdbID %}"><img src="{{ movie_info10.Poster }}"></a>
+            </div>
+            <div class="card-content">
+              <span class="card-title"><b>{{ movie_info10.Title }}</b></span>
+              <span class="right">{{movie_info10.Year}}</span>
+              <p><b>{{ movie_info10.Type }}</b></p>
+              
+             
+            </div>
+          </div>
+        </div>
+    </div>
+    
+{% endblock %}
+  
+    

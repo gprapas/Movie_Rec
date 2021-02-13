@@ -1,0 +1,30 @@
+from django.urls import path
+from rec.views import index, pagination, movieInformation, addMoviesToWatchList, addMoviesLiked, recommendations, genres_movies, Rate, recommendationstop10, actiontop10, comedytop10, dramatop10, scifitop10, sporttop10, biographytop10, musicaltop10, horrortop10, romancetop10, carstop10, magictop10, heroestop10, christmastop10, spytop10, westerntop10, spacetop10
+urlpatterns = [
+    path('', index, name='index'),
+    path('recommendation', recommendations, name='recommendations'),
+    path('top10', recommendationstop10, name='recommendation-top10'),
+    path('actiontop10', actiontop10, name='action-top10'),
+    path('comedytop10', comedytop10, name='comedy-top10'),
+    path('sporttop10', sporttop10, name='sport-top10'),
+    path('dramatop10', dramatop10, name='drama-top10'),
+    path('scifitop10', scifitop10, name='scifi-top10'),
+    path('cartop10', carstop10, name='cars-top10'),
+    path('magictop10', magictop10, name='magic-top10'),
+    path('biographytop10', biographytop10, name='biography-top10'),
+    path('horrortop10', horrortop10 , name='horror-top10'),
+    path('heroestop10', heroestop10 , name='heroes-top10'),
+    path('romancetop10', romancetop10 , name='romance-top10'),
+    path('musicaltop10', musicaltop10, name='musical-top10'),
+    path('christmastop10', christmastop10, name='christmas-top10'),
+    path('spytop10', spytop10, name='spy-top10'),
+    path('westerntop10', westerntop10, name='western-top10'),
+    path('spacetop10', spacetop10, name='space-top10'),
+    path('<imdb_id>/rate', Rate, name='rate-movie'),
+    path('<imdb_id>', movieInformation, name='movie-informations'),
+    path('<imdb_id>/addtomoviewatchlist', addMoviesToWatchList, name='add-movies-to-watchlist'),
+    path('<imdb_id>/addmovieliked', addMoviesLiked, name='add-movies-liked'),
+    path('genre/<slug:genre_slug>', genres_movies, name='genres'),
+    path('search/<query>/page/<page_number>', pagination, name='pagination' ),
+   
+]
